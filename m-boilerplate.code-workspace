@@ -1,6 +1,12 @@
 {
 	"folders": [
 		{
+			"path": "sf__project-root/__app-root/public/assets"
+		},
+		{
+			"path": "sf__project-root/__app-root/templates"
+		},
+		{
 			"path": "."
 		}
 	],
