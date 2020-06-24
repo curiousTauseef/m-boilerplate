@@ -7,6 +7,7 @@
 - [ ] Attivazione Google Search Console
 - [ ] pagine errore
 - [ ] sitemap
+- [ ] Ottimizzazione cache
 
 
 
@@ -47,4 +48,38 @@ App\Twig\Extension\JsonDecode:
     App\Twig\Extension\Truncate:
         tags:
             - { name: twig.extension }
+```
+
+
+**public/.htaccess**
+
+```apache
+<IfModule mod_headers.c>
+  <filesMatch "\.(png|svg|jpg|webp|ico|gif|xml|woff|woff2|ttf)$">
+    Header set Cache-Control "max-age=31536000, public"
+  </filesMatch>
+  <filesMatch "\.(css)$">
+    Header set Cache-Control "max-age=15768000, public"
+  </filesMatch>
+  <filesMatch "\.(js)$">
+    Header set Cache-Control "max-age=15768000, private"
+  </filesMatch>
+  <filesMatch "\.(php)$">
+    Header set Cache-Control "max-age=0, must-revalidate, private"
+  </filesMatch>
+</IfModule>
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault A300
+  ExpiresByType image/png A31536000
+  ExpiresByType image/gif A31536000
+  ExpiresByType image/jpeg A31536000
+  ExpiresByType image/pjpeg A31536000
+  ExpiresByType image/webp A31536000
+  ExpiresByType image/x-icon A31536000
+  ExpiresByType text/javascript "modification 6 months"
+  ExpiresByType text/css "modification 6 months"
+  ExpiresByType text/html A300
+</IfModule>
 ```
