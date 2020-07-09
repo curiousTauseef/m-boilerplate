@@ -21,14 +21,16 @@
   {%- if type == 'success' -%}
     {% set title = 'Operazione completata' %}
 
-  {%- elseif type == 'error' -%}
+  {%- elseif type == 'error' or type == 'notice' -%}
     {% set title = 'Si è verificato un errore' %}
+    {% set type = 'error' %}
 
   {%- elseif type == 'warning' -%}
     {% set title = 'Attenzione!' %}
 
   {%- else -%}
     {% set title = '' %}
+    {% set type = 'info' %}
 
   {%- endif -%}
 

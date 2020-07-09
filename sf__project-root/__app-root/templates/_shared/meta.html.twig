@@ -34,12 +34,14 @@ tag meta e opengraph (i valori indicati sono quelli di default)
 
 {% if descr|default() %}
   <meta name="description" content="{{ descr }}">
+  <meta itemprop="description" content="{{ descr }}">
 {% endif %}
 
 {% if og %}
   {% if glob_vars.default_meta.og_site_name|default() %}
     <meta property="og:site_name" content="{{ glob_vars.default_meta.og_site_name }}">
   {% endif %}
+
 
   <meta property="og:url" content="{{ app.request.uri }}">
   <meta property="og:type" content="website">
@@ -48,6 +50,7 @@ tag meta e opengraph (i valori indicati sono quelli di default)
   <meta property="twitter:card" content="summary_large_image">
 
   {% if og_title|default() %}
+    <meta itemprop="name" content="{{ og_title }}">
     <meta property="og:title" content="{{ og_title }}">
     <meta property="twitter:title" content="{{ og_title }}">
   {% endif %}
@@ -60,6 +63,7 @@ tag meta e opengraph (i valori indicati sono quelli di default)
   {% if og_img %}
     <meta property="og:image" content="{{ og_img }}">
     <meta property="twitter:image" content="{{ og_img }}">
+    <meta itemprop="image" content="{{ og_img }}">
 
     {% if og_image_width|default() %}
       <meta property="og:image:width" content="{{ og_image_width }}">

@@ -1,13 +1,14 @@
 # TODO
 
-- [ ] `twig.yaml`: attivazione alias twig `@includes` e `@email_includes`
-- [ ] `twig.yaml`: aggiunta form thes `_shared/bs4_form_layout.html.twig`
-- [ ] `services.yaml`: aggiunta estensioni (copiare estensioni da `src/Twig/Extension`
-- [ ] Attivazione Google Analytics
-- [ ] Attivazione Google Search Console
-- [ ] pagine errore
-- [ ] sitemap
-- [ ] Ottimizzazione cache
+* `twig.yaml`: attivazione alias twig `@includes` e `@email_includes`
+* `twig.yaml`: aggiunta form thes `_shared/bs4_form_layout.html.twig`
+* `services.yaml`: aggiunta estensioni (copiare estensioni da `src/Twig/Extension`
+* Attivazione Google Analytics
+* Attivazione Google Search Console
+* Favicons
+* pagine errore
+* sitemap
+* Ottimizzazione cache
 
 
 

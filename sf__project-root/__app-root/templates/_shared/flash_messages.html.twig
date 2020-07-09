@@ -12,7 +12,7 @@
 
 {% for label, messages in app.flashes %}
   {% for message in messages %}
-    <div class="alert alert-{{ label == 'error' ? 'danger' : (label == 'notice' ? 'info' : label)}} alert-icon alert-flash">
+    <div class="alert alert-{{ label == 'error' ? 'danger' : (label == 'notice' ? 'danger' : label)}} alert-icon alert-flash">
       {{ message|raw }}
     </div>
   {% endfor %}

@@ -2,6 +2,7 @@
 .codekit-cache/
 config.codekit3
 *.code-workspace
+.vscode
 .DS_Store*
 ehthumbs.db
 Icon?
