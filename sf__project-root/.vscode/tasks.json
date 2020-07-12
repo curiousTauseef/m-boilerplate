@@ -4,12 +4,12 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "Aggiorna elementi da mUtilities",
+      "label": "Aggiorna elementi da boilerplate & m-utilities",
       "type": "shell",
-      "command": "gulp --gulpfile _tasks/gulpfile-update-from-mUtilities.js",
+      "command": "cd ${workspaceFolder}/_tasks; . upd-from-boilerplate.sh",
       "presentation": {
         "reveal": "always",
-        "panel": "new",
+        "panel": "shared",
         "clear": true
       },
       "problemMatcher": []
@@ -17,7 +17,7 @@
     {
       "label": "compila icone",
       "type": "shell",
-      "command": "cd ${workspaceFolder}/topsrl2020/public/assets/icone; gulp",
+      "command": "cd ${workspaceFolder}/esa-2020-2/public/assets/icone; gulp",
       "presentation": {
         "reveal": "silent",
         "panel": "shared",
