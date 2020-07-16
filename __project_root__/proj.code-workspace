@@ -1,0 +1,18 @@
+{
+  
+  "folders": [
+    {
+			"name": "assets",
+			"path": "__app_root__/public/assets"
+		},
+		{
+			"name": "templates",
+			"path": "__app_root__/templates"
+		},
+    {
+      "name" : "**main**",
+      "path": "."
+    }
+  ],
+  "settings": {}
+}

@@ -1,10 +1,10 @@
 {
 	"folders": [
 		{
-			"path": "sf__project-root/__app-root/public/assets"
+			"path": "__project_root__/__app_root__/public/assets"
 		},
 		{
-			"path": "sf__project-root/__app-root/templates"
+			"path": "__project_root__/__app_root__/templates"
 		},
 		{
 			"path": "."

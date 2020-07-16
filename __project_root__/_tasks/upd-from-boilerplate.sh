@@ -41,7 +41,7 @@ fi
 
 
 # contenuti
-SOURCE="$boilerplate_path"/sf__project-root/__app-root/templates/backoffice/contenuti/
+SOURCE="$boilerplate_path"/__project_root__/__app_root__/templates/backoffice/contenuti/
 TARGET=$TEMPLATES_DIR/backoffice/contenuti/
 if [ -d $TARGET ]; then
   cp -a "$SOURCE". "$TARGET"
@@ -67,7 +67,7 @@ SHARED_DIR_FILES=(
 )
 for i in "${SHARED_DIR_FILES[@]}"
 do
-  SOURCE="$boilerplate_path"/sf__project-root/__app-root/templates/_shared/"$i"
+  SOURCE="$boilerplate_path"/__project_root__/__app_root__/templates/_shared/"$i"
   TARGET="$TEMPLATES_DIR"/_shared/"$i"
   if [ -f "$TARGET" ]; then
     cp "$SOURCE" "$TARGET"
@@ -84,7 +84,7 @@ then
 fi
 if [ $SN == "s" ] || [ $SN == "S" ]
 then
-  cp "$boilerplate_path"/sf__project-root/_tasks/upd-from-boilerplate.sh "$PWD"
+  cp "$boilerplate_path"/__project_root__/_tasks/upd-from-boilerplate.sh "$PWD"
 fi
 
 echo END
