@@ -125,7 +125,7 @@ let jsapp = {
 
   // alert autoclose
   window.setTimeout(function () {
-    $('.alert-autoclose').fadeTo(500, 0).slideUp(500, function () {
+    $('.alert-success.alert-flash').fadeTo(500, 0).slideUp(500, function () {
       $(this).remove();
     });
   }, 4000);
