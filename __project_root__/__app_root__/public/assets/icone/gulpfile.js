@@ -29,16 +29,19 @@ var gulp = require('gulp')
   ,inject = require('gulp-inject-string')
   ,flatmap = require('gulp-flatmap')
   ,fs = require('fs')
+  ,grst = require('gulp-remove-svg-tag')
 ;
 
 
 var icon_list = [], // lista delle icone, utilizzate per il file demo
   svg_files_folder = 'icone-svg',
-  svg_files_prefix = 'icone_',
+  svg_files_prefix = '',
   output_file = 'icone.svg',
   icon_list_file = 'icon_list.js',
-  svg_to_scss = ['check', 'danger', 'info'], // icone da convertire in variabili scss
+  svg_to_scss = ['ui-check', 'ui-danger', 'ui-info', 'ui-off'], // icone da convertire in variabili scss
   icons_scss_file = '_icone_svg.scss',
+
+  // https://github.com/svg/svgo/tree/master/plugins
   svgmin_plugins = [
     { cleanupIDs: { remove: true, minify: true } }
     , { removeDoctype: true }
@@ -48,9 +51,10 @@ var icon_list = [], // lista delle icone, utilizzate per il file demo
     , { cleanupNumericValues: { floatPrecision: 3  } }
     , { convertColors: { names2hex: true, rgb2hex: true } }
     , { removeStyleElement: true }
-    , { removeUselessDefs: true }
     , { removeEmptyContainers: true }
-    , { removeAttrs: { attrs: ['(fill|stroke|class|style|data.*)', 'svg:(width|height)'] } }
+    // , { removeAttrs: { attrs: ['(fill|stroke|class|style|data.*)', 'svg:(width|height)'] } }
+    , { removeAttrs: { attrs: ['(filter|fill|stroke|class|style|data.*)', 'svg:(width|height)'] } }
+    , { removeUselessDefs: true }
     //, { addAttributesToSVGElement: {attribute: "#{$attr}"}}
   ]
 ;
@@ -66,9 +70,11 @@ gulp.task('icone', function() {
 
       return path;
     }))
+    .pipe(grst({
+      tagNames: ['filter']
+    }))
     .pipe(svgmin(function () {
       return {
-        // https://github.com/svg/svgo/tree/master/plugins
         plugins: svgmin_plugins
         //,js2svg: { pretty: true }
       };

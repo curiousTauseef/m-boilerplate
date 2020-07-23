@@ -19,7 +19,7 @@
   "tpl backoffice": {
     "prefix": ["twig", "tpl", "template"],
     "body": [
-      "{% set pagID = '${TM_FILENAME_BASE/[\\-]/_/g}' %}",
+      "{% set pagID = '${TM_FILENAME_BASE/\\.html$|(^|[-.])([^-.]+)/${1:+_}${2:/lowcase}/g}' %}",
       "{# {% set controller = pagID %} #}",
       "{% extends 'backoffice/_backoffice-tpl.html.twig' %}",
       "{%- set titolo_pagina -%}",
@@ -48,7 +48,7 @@
   "tpl sito pubblico": {
     "prefix": ["twig", "tpl", "template"],
     "body": [
-      "{% set pagID = '${TM_FILENAME_BASE/[\\-]/_/g}' %}",
+      "{% set pagID = '${TM_FILENAME_BASE/\\.html$|(^|[-.])([^-.]+)/${1:+_}${2:/lowcase}/g}' %}",
       "{# {% set controller = pagID %} #}",
       "{% extends 'sito_pubblico/_sito-pubblico-tpl.html.twig' %}",
       "{% block title %}{% endblock title %}",
@@ -72,5 +72,11 @@
       "{% block last_content %}{% endblock last_content %}",
       ""
     ]
-  }
+  },
+  "include icone std": {
+    "prefix": ["twig", "icone", "{% include", "%include"],
+    "body": [
+      "{% include '@includes/icone.html.twig' with { id: 'xxxx', class: 'icona' } %}"
+    ]
+  },
 }

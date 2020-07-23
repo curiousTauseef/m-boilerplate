@@ -27,7 +27,7 @@
 
       .icona {
         flex:0 0 var(--icon-size);
-        width:var(--icon-size);
+        max-width:var(--icon-size);
         margin:1rem;
         text-align: center;
       }
@@ -41,9 +41,9 @@
       }
 
       .icon_dida {
-        overflow: hidden;
+        /* overflow: hidden;
         white-space: nowrap;
-        text-overflow: ellipsis;
+        text-overflow: ellipsis; */
         max-width: 100%;
       }
 
@@ -68,7 +68,9 @@
               '<title>' + item + '</title>' +
               '<use href="' + svg_file + '#' + item + '"></use>'+
             '</svg>'+
-            '<p class="icon_dida" title="' + item + '">' + item + '</p>'+
+            '<p class="icon_dida" title="' + item + '">' +
+              item.replace(/(_|\-)/g, '$1<wbr>') +
+            '</p>'+
           '</div>'
         );
       });
