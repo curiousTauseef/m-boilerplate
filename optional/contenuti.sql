@@ -8,6 +8,10 @@ VALUES
 	(6,'Blocco di testo',NULL,NULL),
 	(7,'Casella di controllo','checkbox',NULL),
 	(8,'Url','url',NULL),
-	(9,'Video keyname S3','text',NULL),
+	-- (9,'Video keyname S3','text',NULL),
 	(10,'Immagine',NULL,NULL),
 	(11,'Galleria immagini',NULL,NULL);
+
+INSERT INTO `contenuti_sezione` (`id`, `chiave_sezione`, `sezione`, `intro`)
+VALUES
+	(1, 'globali', 'Impostazioni globali', NULL);

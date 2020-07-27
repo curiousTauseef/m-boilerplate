@@ -72,11 +72,6 @@
       "{% block last_content %}{% endblock last_content %}",
       ""
     ]
-  },
-  "include icone std": {
-    "prefix": ["twig", "icone", "{% include", "%include"],
-    "body": [
-      "{% include '@includes/icone.html.twig' with { id: 'xxxx', class: 'icona' } %}"
-    ]
-  },
+  }
+ 
 }

@@ -133,6 +133,7 @@
 
     {% if row|default() %}
       {% set dati_file = row.file is defined? row.file : row %}
+      {% set is_svg = dati_file.mime == 'image/svg+xml' %}
 
     	{% set this_value = {
         id    : row.id,
@@ -152,13 +153,14 @@
       	{% set this_value = this_value|merge({rel_id: row.id}) %}
       {% endif %}
 
-      {% if data.filetype == 'img' %}
+      {% if data.filetype == 'img' or data.filetype == 'img+svg'%}
       	{% set this_value = this_value|merge({
-          url   : viewer ~ '/' ~ dati_file.id ~ '?bb=900x800' ~ viewer_extra_params,
-          src   : viewer ~ '/' ~ dati_file.id ~ '?bb=' ~ minia_bb ~ viewer_extra_params,
-          wi    : dati_file.width,
-          he    : dati_file.height
-        }) %}
+          url   : viewer ~ '/' ~ dati_file.id ~ (not is_svg? '?bb=900x800' ~ viewer_extra_params : ''),
+          src   : viewer ~ '/' ~ dati_file.id ~  (not is_svg? '?bb=' ~ minia_bb ~ viewer_extra_params : '')
+        })|merge(not is_svg? {
+          wi    : (not is_svg? dati_file.width : null),
+          he    : (not is_svg? dati_file.height : null)
+        } : {}) %}
       {% endif %}
 
     	{% set parsed_values = parsed_values|merge([this_value]) %}

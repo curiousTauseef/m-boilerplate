@@ -474,7 +474,7 @@
       <p class="form-edit-info">Salvare la scheda per visualizzare il form di editing del contenuto.</p>
     {%- endif -%}
 
-    {% include '@includes/form_end.html.twig' with {show_delete: false } %}
+    {% include '@includes/form_end_sf5.html.twig' with {show_delete: false } %}
 
     {{ form_widget(form._token) }}
     {{ form_end(form, {'render_rest': false}) }}
