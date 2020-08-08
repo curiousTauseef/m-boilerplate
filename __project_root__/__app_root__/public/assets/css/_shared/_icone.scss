@@ -5,10 +5,18 @@
   position: relative;
   fill: currentColor;
 
-  &-big {
-    width:1.5rem;
-    height:1.5rem;
-    top:-2px;
+  &.icona {
+    &-lg {
+      width:1.5rem;
+      height:1.5rem;
+      top:-2px;
+    }
+
+    &-xl {
+      width:3rem;
+      height:3rem;
+      top:-3px;
+    }
   }
 
   .btn & {
@@ -19,6 +27,8 @@
 }
 
 span.icona {
+  width:1.1em;
+  height: 1.1em;
   &::before {
     width: 100%;
     height: 100%;
@@ -26,17 +36,12 @@ span.icona {
     position: absolute;
     top: 0;
     left: 0;
-
-    .table & {
-      width: 1.2em;
-      height: 1.2em;
-    }
   }
 
   &-ok {
     &::before {
       content: svg_uri(
-      str-replace(map-get($ui-icons, on), '<svg', '<svg stroke="#{theme-color(success)}"')
+        str-replace(map-get($ui-icons, on), '<svg', '<svg fill="#{theme-color(success)}"')
       );
     }
   }
@@ -44,11 +49,10 @@ span.icona {
   &-off {
     &::before {
       content: svg_uri(
-      str-replace(map-get($ui-icons, off), '<svg', '<svg stroke="#{theme-color(danger)}"')
+        str-replace(map-get($ui-icons, off), '<svg', '<svg fill="#{$grigio-2}"')
       );
     }
   }
-
 }
 
 .btn-icon {
@@ -60,14 +64,14 @@ span.icona {
   align-items:center;
 
   svg {
-  width:1rem + $input-btn-padding-y * 2;
-  height:1rem + $input-btn-padding-y * 2;
-  fill:currentColor;
+    width:1rem + $input-btn-padding-y * 2;
+    height:1rem + $input-btn-padding-y * 2;
+    fill:currentColor;
   }
 
   &.btn-round {
-  padding:$input-btn-padding-y;
-  border-radius:50%;
+    padding:$input-btn-padding-y;
+    border-radius:50%;
   }
 }
 

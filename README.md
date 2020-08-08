@@ -1,3 +1,3 @@
 # m-boilerplate
 
-Front-end boilerplate
+Front-end boilerplate for Symfony/Twig projects
